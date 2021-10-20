@@ -1,0 +1,1299 @@
+
+TikTakToeKorrer.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000004c  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000006a0  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  000006a0  2**0
+                  CONTENTS, READONLY
+  3 .debug_aranges 00000068  00000000  00000000  000006cf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000d9f  00000000  00000000  00000737  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 0000068a  00000000  00000000  000014d6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   000007a7  00000000  00000000  00001b60  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000118  00000000  00000000  00002308  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    00000181  00000000  00000000  00002420  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    00000a22  00000000  00000000  000025a1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000088  00000000  00000000  00002fc3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .text         00000002  0000064a  0000064a  0000069e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000304c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .text.convertAnalogToNumber 00000084  00000520  00000520  00000574  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .text.readButtons 00000012  0000061a  0000061a  0000066e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.readADC 00000010  0000062c  0000062c  00000680  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.initADC 0000000e  0000063c  0000063c  00000690  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.setLedColor 000001d4  00000064  00000064  000000b8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text.setDisplay 00000026  000005f4  000005f4  00000648  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.winAnimation 00000144  00000238  00000238  0000028c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.findWin 000000a6  0000047a  0000047a  000004ce  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text.drawAnimation 00000050  000005a4  000005a4  000005f8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .text.main    000000fe  0000037c  0000037c  000003d0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 23 .progmemx.data.linepattern 00000018  0000004c  0000004c  000000a0  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, PROGMEMX
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	1b c0       	rjmp	.+54     	; 0x38 <__ctors_end>
+   2:	23 c3       	rjmp	.+1606   	; 0x64a <__bad_interrupt>
+   4:	22 c3       	rjmp	.+1604   	; 0x64a <__bad_interrupt>
+   6:	21 c3       	rjmp	.+1602   	; 0x64a <__bad_interrupt>
+   8:	20 c3       	rjmp	.+1600   	; 0x64a <__bad_interrupt>
+   a:	1f c3       	rjmp	.+1598   	; 0x64a <__bad_interrupt>
+   c:	1e c3       	rjmp	.+1596   	; 0x64a <__bad_interrupt>
+   e:	1d c3       	rjmp	.+1594   	; 0x64a <__bad_interrupt>
+  10:	1c c3       	rjmp	.+1592   	; 0x64a <__bad_interrupt>
+  12:	1b c3       	rjmp	.+1590   	; 0x64a <__bad_interrupt>
+  14:	1a c3       	rjmp	.+1588   	; 0x64a <__bad_interrupt>
+  16:	19 c3       	rjmp	.+1586   	; 0x64a <__bad_interrupt>
+  18:	18 c3       	rjmp	.+1584   	; 0x64a <__bad_interrupt>
+  1a:	17 c3       	rjmp	.+1582   	; 0x64a <__bad_interrupt>
+  1c:	16 c3       	rjmp	.+1580   	; 0x64a <__bad_interrupt>
+  1e:	15 c3       	rjmp	.+1578   	; 0x64a <__bad_interrupt>
+  20:	14 c3       	rjmp	.+1576   	; 0x64a <__bad_interrupt>
+  22:	13 c3       	rjmp	.+1574   	; 0x64a <__bad_interrupt>
+  24:	12 c3       	rjmp	.+1572   	; 0x64a <__bad_interrupt>
+  26:	27 c0       	rjmp	.+78     	; 0x76 <setLedColor+0x12>
+  28:	3f c0       	rjmp	.+126    	; 0xa8 <setLedColor+0x44>
+  2a:	57 c0       	rjmp	.+174    	; 0xda <setLedColor+0x76>
+  2c:	6f c0       	rjmp	.+222    	; 0x10c <setLedColor+0xa8>
+  2e:	87 c0       	rjmp	.+270    	; 0x13e <setLedColor+0xda>
+  30:	9f c0       	rjmp	.+318    	; 0x170 <setLedColor+0x10c>
+  32:	b7 c0       	rjmp	.+366    	; 0x1a2 <setLedColor+0x13e>
+  34:	cf c0       	rjmp	.+414    	; 0x1d4 <setLedColor+0x170>
+  36:	e7 c0       	rjmp	.+462    	; 0x206 <__EEPROM_REGION_LENGTH__+0x6>
+
+00000038 <__ctors_end>:
+  38:	11 24       	eor	r1, r1
+  3a:	1f be       	out	0x3f, r1	; 63
+  3c:	cf e5       	ldi	r28, 0x5F	; 95
+  3e:	d4 e0       	ldi	r29, 0x04	; 4
+  40:	de bf       	out	0x3e, r29	; 62
+  42:	cd bf       	out	0x3d, r28	; 61
+  44:	9b d1       	rcall	.+822    	; 0x37c <main>
+  46:	00 c0       	rjmp	.+0      	; 0x48 <_exit>
+
+00000048 <_exit>:
+  48:	f8 94       	cli
+
+0000004a <__stop_program>:
+  4a:	ff cf       	rjmp	.-2      	; 0x4a <__stop_program>
+
+Disassembly of section .text:
+
+0000064a <__bad_interrupt>:
+ 64a:	da cc       	rjmp	.-1612   	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.convertAnalogToNumber:
+
+00000520 <convertAnalogToNumber>:
+		2,4,6
+	},
+};
+
+uint8_t convertAnalogToNumber(uint16_t voltage){
+	if(voltage>=540 && voltage<=580) return 0;
+ 520:	9c 01       	movw	r18, r24
+ 522:	2c 51       	subi	r18, 0x1C	; 28
+ 524:	32 40       	sbci	r19, 0x02	; 2
+ 526:	29 32       	cpi	r18, 0x29	; 41
+ 528:	31 05       	cpc	r19, r1
+ 52a:	50 f1       	brcs	.+84     	; 0x580 <convertAnalogToNumber+0x60>
+	else if(voltage>=650 && voltage<=680) return 1;
+ 52c:	2e 56       	subi	r18, 0x6E	; 110
+ 52e:	31 09       	sbc	r19, r1
+ 530:	2f 31       	cpi	r18, 0x1F	; 31
+ 532:	31 05       	cpc	r19, r1
+ 534:	38 f1       	brcs	.+78     	; 0x584 <convertAnalogToNumber+0x64>
+	else if(voltage>=820 && voltage<=860) return 2;
+ 536:	2a 5a       	subi	r18, 0xAA	; 170
+ 538:	31 09       	sbc	r19, r1
+ 53a:	29 32       	cpi	r18, 0x29	; 41
+ 53c:	31 05       	cpc	r19, r1
+ 53e:	20 f1       	brcs	.+72     	; 0x588 <convertAnalogToNumber+0x68>
+	else if(voltage>=370 && voltage<=410) return 3;
+ 540:	2e 53       	subi	r18, 0x3E	; 62
+ 542:	3e 4f       	sbci	r19, 0xFE	; 254
+ 544:	29 32       	cpi	r18, 0x29	; 41
+ 546:	31 05       	cpc	r19, r1
+ 548:	08 f1       	brcs	.+66     	; 0x58c <convertAnalogToNumber+0x6c>
+	else if(voltage>=420 && voltage<=450) return 4;
+ 54a:	22 53       	subi	r18, 0x32	; 50
+ 54c:	31 09       	sbc	r19, r1
+ 54e:	2f 31       	cpi	r18, 0x1F	; 31
+ 550:	31 05       	cpc	r19, r1
+ 552:	f0 f0       	brcs	.+60     	; 0x590 <convertAnalogToNumber+0x70>
+	else if(voltage>=490 && voltage<=520) return 5;
+ 554:	26 54       	subi	r18, 0x46	; 70
+ 556:	31 09       	sbc	r19, r1
+ 558:	2f 31       	cpi	r18, 0x1F	; 31
+ 55a:	31 05       	cpc	r19, r1
+ 55c:	d8 f0       	brcs	.+54     	; 0x594 <convertAnalogToNumber+0x74>
+	else if(voltage>=620 && voltage<=645) return 6;
+ 55e:	22 58       	subi	r18, 0x82	; 130
+ 560:	31 09       	sbc	r19, r1
+ 562:	2a 31       	cpi	r18, 0x1A	; 26
+ 564:	31 05       	cpc	r19, r1
+ 566:	c0 f0       	brcs	.+48     	; 0x598 <convertAnalogToNumber+0x78>
+	else if(voltage>=750 && voltage<=770) return 7;
+ 568:	22 58       	subi	r18, 0x82	; 130
+ 56a:	31 09       	sbc	r19, r1
+ 56c:	25 31       	cpi	r18, 0x15	; 21
+ 56e:	31 05       	cpc	r19, r1
+ 570:	a8 f0       	brcs	.+42     	; 0x59c <convertAnalogToNumber+0x7c>
+	else if(voltage>=950 && voltage<=1024) return 8;
+ 572:	86 5b       	subi	r24, 0xB6	; 182
+ 574:	93 40       	sbci	r25, 0x03	; 3
+ 576:	8b 34       	cpi	r24, 0x4B	; 75
+ 578:	91 05       	cpc	r25, r1
+ 57a:	90 f4       	brcc	.+36     	; 0x5a0 <convertAnalogToNumber+0x80>
+ 57c:	88 e0       	ldi	r24, 0x08	; 8
+ 57e:	08 95       	ret
+		2,4,6
+	},
+};
+
+uint8_t convertAnalogToNumber(uint16_t voltage){
+	if(voltage>=540 && voltage<=580) return 0;
+ 580:	80 e0       	ldi	r24, 0x00	; 0
+ 582:	08 95       	ret
+	else if(voltage>=650 && voltage<=680) return 1;
+ 584:	81 e0       	ldi	r24, 0x01	; 1
+ 586:	08 95       	ret
+	else if(voltage>=820 && voltage<=860) return 2;
+ 588:	82 e0       	ldi	r24, 0x02	; 2
+ 58a:	08 95       	ret
+	else if(voltage>=370 && voltage<=410) return 3;
+ 58c:	83 e0       	ldi	r24, 0x03	; 3
+ 58e:	08 95       	ret
+	else if(voltage>=420 && voltage<=450) return 4;
+ 590:	84 e0       	ldi	r24, 0x04	; 4
+ 592:	08 95       	ret
+	else if(voltage>=490 && voltage<=520) return 5;
+ 594:	85 e0       	ldi	r24, 0x05	; 5
+ 596:	08 95       	ret
+	else if(voltage>=620 && voltage<=645) return 6;
+ 598:	86 e0       	ldi	r24, 0x06	; 6
+ 59a:	08 95       	ret
+	else if(voltage>=750 && voltage<=770) return 7;
+ 59c:	87 e0       	ldi	r24, 0x07	; 7
+ 59e:	08 95       	ret
+	else if(voltage>=950 && voltage<=1024) return 8;
+	return 10;
+ 5a0:	8a e0       	ldi	r24, 0x0A	; 10
+}
+ 5a2:	08 95       	ret
+
+Disassembly of section .text.readButtons:
+
+0000061a <readButtons>:
+
+uint8_t readButtons(void)
+{
+	//ADMUX = (ADMUX & 0xF8)|BTNIN;
+	ADCSRA |= (1<<ADSC);
+ 61a:	86 b1       	in	r24, 0x06	; 6
+ 61c:	80 64       	ori	r24, 0x40	; 64
+ 61e:	86 b9       	out	0x06, r24	; 6
+	while(ADCSRA & (1<<ADSC));
+ 620:	36 99       	sbic	0x06, 6	; 6
+ 622:	fe cf       	rjmp	.-4      	; 0x620 <readButtons+0x6>
+	return (convertAnalogToNumber(ADCW));
+ 624:	84 b1       	in	r24, 0x04	; 4
+ 626:	95 b1       	in	r25, 0x05	; 5
+ 628:	7b df       	rcall	.-266    	; 0x520 <convertAnalogToNumber>
+}
+ 62a:	08 95       	ret
+
+Disassembly of section .text.readADC:
+
+0000062c <readADC>:
+
+unsigned int readADC(void)
+{
+	ADCSRA |= (1<<ADSC);
+ 62c:	86 b1       	in	r24, 0x06	; 6
+ 62e:	80 64       	ori	r24, 0x40	; 64
+ 630:	86 b9       	out	0x06, r24	; 6
+	while(ADCSRA & (1<<ADSC));
+ 632:	36 99       	sbic	0x06, 6	; 6
+ 634:	fe cf       	rjmp	.-4      	; 0x632 <readADC+0x6>
+	return (ADCW);
+ 636:	84 b1       	in	r24, 0x04	; 4
+ 638:	95 b1       	in	r25, 0x05	; 5
+}
+ 63a:	08 95       	ret
+
+Disassembly of section .text.initADC:
+
+0000063c <initADC>:
+
+void initADC(void){
+	ADCSRA |= (1<<ADEN)|(1<<ADPS2)|(1<<ADPS1);
+ 63c:	86 b1       	in	r24, 0x06	; 6
+ 63e:	86 68       	ori	r24, 0x86	; 134
+ 640:	86 b9       	out	0x06, r24	; 6
+	ADMUX |= (1<<REFS0);
+ 642:	87 b1       	in	r24, 0x07	; 7
+ 644:	80 64       	ori	r24, 0x40	; 64
+ 646:	87 b9       	out	0x07, r24	; 7
+ 648:	08 95       	ret
+
+Disassembly of section .text.setLedColor:
+
+00000064 <setLedColor>:
+}
+
+
+void setLedColor(uint8_t led, uint8_t color){
+	switch(led){
+  64:	90 e0       	ldi	r25, 0x00	; 0
+  66:	89 30       	cpi	r24, 0x09	; 9
+  68:	91 05       	cpc	r25, r1
+  6a:	08 f0       	brcs	.+2      	; 0x6e <setLedColor+0xa>
+  6c:	e4 c0       	rjmp	.+456    	; 0x236 <__EEPROM_REGION_LENGTH__+0x36>
+  6e:	fc 01       	movw	r30, r24
+  70:	ed 5e       	subi	r30, 0xED	; 237
+  72:	ff 4f       	sbci	r31, 0xFF	; 255
+  74:	09 94       	ijmp
+		case 0:
+		if(color == 2){
+  76:	62 30       	cpi	r22, 0x02	; 2
+  78:	39 f4       	brne	.+14     	; 0x88 <setLedColor+0x24>
+			HIGH(LH1);
+  7a:	82 b3       	in	r24, 0x12	; 18
+  7c:	81 60       	ori	r24, 0x01	; 1
+  7e:	82 bb       	out	0x12, r24	; 18
+			LOW(LL1);
+  80:	82 b3       	in	r24, 0x12	; 18
+  82:	8d 7f       	andi	r24, 0xFD	; 253
+  84:	82 bb       	out	0x12, r24	; 18
+  86:	08 95       	ret
+		}
+		else if(color == 1){
+  88:	61 30       	cpi	r22, 0x01	; 1
+  8a:	39 f4       	brne	.+14     	; 0x9a <setLedColor+0x36>
+			LOW(LH1);
+  8c:	82 b3       	in	r24, 0x12	; 18
+  8e:	8e 7f       	andi	r24, 0xFE	; 254
+  90:	82 bb       	out	0x12, r24	; 18
+			HIGH(LL1);
+  92:	82 b3       	in	r24, 0x12	; 18
+  94:	82 60       	ori	r24, 0x02	; 2
+  96:	82 bb       	out	0x12, r24	; 18
+  98:	08 95       	ret
+		}
+		else{
+			LOW(LH1);
+  9a:	82 b3       	in	r24, 0x12	; 18
+  9c:	8e 7f       	andi	r24, 0xFE	; 254
+  9e:	82 bb       	out	0x12, r24	; 18
+			LOW(LL1);
+  a0:	82 b3       	in	r24, 0x12	; 18
+  a2:	8d 7f       	andi	r24, 0xFD	; 253
+  a4:	82 bb       	out	0x12, r24	; 18
+  a6:	08 95       	ret
+		}
+		break;
+		
+		case 1:
+		if(color == 2){
+  a8:	62 30       	cpi	r22, 0x02	; 2
+  aa:	39 f4       	brne	.+14     	; 0xba <setLedColor+0x56>
+			HIGH(LH2);
+  ac:	82 b3       	in	r24, 0x12	; 18
+  ae:	84 60       	ori	r24, 0x04	; 4
+  b0:	82 bb       	out	0x12, r24	; 18
+			LOW(LL2);
+  b2:	82 b3       	in	r24, 0x12	; 18
+  b4:	87 7f       	andi	r24, 0xF7	; 247
+  b6:	82 bb       	out	0x12, r24	; 18
+  b8:	08 95       	ret
+		}
+		else if(color == 1){
+  ba:	61 30       	cpi	r22, 0x01	; 1
+  bc:	39 f4       	brne	.+14     	; 0xcc <setLedColor+0x68>
+			LOW(LH2);
+  be:	82 b3       	in	r24, 0x12	; 18
+  c0:	8b 7f       	andi	r24, 0xFB	; 251
+  c2:	82 bb       	out	0x12, r24	; 18
+			HIGH(LL2);
+  c4:	82 b3       	in	r24, 0x12	; 18
+  c6:	88 60       	ori	r24, 0x08	; 8
+  c8:	82 bb       	out	0x12, r24	; 18
+  ca:	08 95       	ret
+		}
+		else{
+			LOW(LH2);
+  cc:	82 b3       	in	r24, 0x12	; 18
+  ce:	8b 7f       	andi	r24, 0xFB	; 251
+  d0:	82 bb       	out	0x12, r24	; 18
+			LOW(LL2);
+  d2:	82 b3       	in	r24, 0x12	; 18
+  d4:	87 7f       	andi	r24, 0xF7	; 247
+  d6:	82 bb       	out	0x12, r24	; 18
+  d8:	08 95       	ret
+		}
+		break;
+		
+		case 2:
+		if(color == 2){
+  da:	62 30       	cpi	r22, 0x02	; 2
+  dc:	39 f4       	brne	.+14     	; 0xec <setLedColor+0x88>
+			HIGH(LH3);
+  de:	82 b3       	in	r24, 0x12	; 18
+  e0:	80 61       	ori	r24, 0x10	; 16
+  e2:	82 bb       	out	0x12, r24	; 18
+			LOW(LL3);
+  e4:	88 b3       	in	r24, 0x18	; 24
+  e6:	8f 7b       	andi	r24, 0xBF	; 191
+  e8:	88 bb       	out	0x18, r24	; 24
+  ea:	08 95       	ret
+		}
+		else if(color == 1){
+  ec:	61 30       	cpi	r22, 0x01	; 1
+  ee:	39 f4       	brne	.+14     	; 0xfe <setLedColor+0x9a>
+			LOW(LH3);
+  f0:	82 b3       	in	r24, 0x12	; 18
+  f2:	8f 7e       	andi	r24, 0xEF	; 239
+  f4:	82 bb       	out	0x12, r24	; 18
+			HIGH(LL3);
+  f6:	88 b3       	in	r24, 0x18	; 24
+  f8:	80 64       	ori	r24, 0x40	; 64
+  fa:	88 bb       	out	0x18, r24	; 24
+  fc:	08 95       	ret
+		}
+		else{
+			LOW(LH3);
+  fe:	82 b3       	in	r24, 0x12	; 18
+ 100:	8f 7e       	andi	r24, 0xEF	; 239
+ 102:	82 bb       	out	0x12, r24	; 18
+			LOW(LL3);
+ 104:	88 b3       	in	r24, 0x18	; 24
+ 106:	8f 7b       	andi	r24, 0xBF	; 191
+ 108:	88 bb       	out	0x18, r24	; 24
+ 10a:	08 95       	ret
+		}
+		break;
+		
+		case 3:
+		if(color == 2){
+ 10c:	62 30       	cpi	r22, 0x02	; 2
+ 10e:	39 f4       	brne	.+14     	; 0x11e <setLedColor+0xba>
+			HIGH(LH4);
+ 110:	88 b3       	in	r24, 0x18	; 24
+ 112:	80 68       	ori	r24, 0x80	; 128
+ 114:	88 bb       	out	0x18, r24	; 24
+			LOW(LL4);
+ 116:	82 b3       	in	r24, 0x12	; 18
+ 118:	8f 7d       	andi	r24, 0xDF	; 223
+ 11a:	82 bb       	out	0x12, r24	; 18
+ 11c:	08 95       	ret
+		}
+		else if(color == 1){
+ 11e:	61 30       	cpi	r22, 0x01	; 1
+ 120:	39 f4       	brne	.+14     	; 0x130 <setLedColor+0xcc>
+			LOW(LH4);
+ 122:	88 b3       	in	r24, 0x18	; 24
+ 124:	8f 77       	andi	r24, 0x7F	; 127
+ 126:	88 bb       	out	0x18, r24	; 24
+			HIGH(LL4);
+ 128:	82 b3       	in	r24, 0x12	; 18
+ 12a:	80 62       	ori	r24, 0x20	; 32
+ 12c:	82 bb       	out	0x12, r24	; 18
+ 12e:	08 95       	ret
+		}
+		else{
+			LOW(LH4);
+ 130:	88 b3       	in	r24, 0x18	; 24
+ 132:	8f 77       	andi	r24, 0x7F	; 127
+ 134:	88 bb       	out	0x18, r24	; 24
+			LOW(LL4);
+ 136:	82 b3       	in	r24, 0x12	; 18
+ 138:	8f 7d       	andi	r24, 0xDF	; 223
+ 13a:	82 bb       	out	0x12, r24	; 18
+ 13c:	08 95       	ret
+		}
+		break;
+		
+		case 4:
+		if(color == 2){
+ 13e:	62 30       	cpi	r22, 0x02	; 2
+ 140:	39 f4       	brne	.+14     	; 0x150 <setLedColor+0xec>
+			HIGH(LH5);
+ 142:	82 b3       	in	r24, 0x12	; 18
+ 144:	80 64       	ori	r24, 0x40	; 64
+ 146:	82 bb       	out	0x12, r24	; 18
+			LOW(LL5);
+ 148:	82 b3       	in	r24, 0x12	; 18
+ 14a:	8f 77       	andi	r24, 0x7F	; 127
+ 14c:	82 bb       	out	0x12, r24	; 18
+ 14e:	08 95       	ret
+		}
+		else if(color == 1){
+ 150:	61 30       	cpi	r22, 0x01	; 1
+ 152:	39 f4       	brne	.+14     	; 0x162 <setLedColor+0xfe>
+			LOW(LH5);
+ 154:	82 b3       	in	r24, 0x12	; 18
+ 156:	8f 7b       	andi	r24, 0xBF	; 191
+ 158:	82 bb       	out	0x12, r24	; 18
+			HIGH(LL5);
+ 15a:	82 b3       	in	r24, 0x12	; 18
+ 15c:	80 68       	ori	r24, 0x80	; 128
+ 15e:	82 bb       	out	0x12, r24	; 18
+ 160:	08 95       	ret
+		}
+		else{
+			LOW(LH5);
+ 162:	82 b3       	in	r24, 0x12	; 18
+ 164:	8f 7b       	andi	r24, 0xBF	; 191
+ 166:	82 bb       	out	0x12, r24	; 18
+			LOW(LL5);
+ 168:	82 b3       	in	r24, 0x12	; 18
+ 16a:	8f 77       	andi	r24, 0x7F	; 127
+ 16c:	82 bb       	out	0x12, r24	; 18
+ 16e:	08 95       	ret
+		}
+		break;
+		
+		case 5:
+		if(color == 2){
+ 170:	62 30       	cpi	r22, 0x02	; 2
+ 172:	39 f4       	brne	.+14     	; 0x182 <setLedColor+0x11e>
+			HIGH(LH6);
+ 174:	88 b3       	in	r24, 0x18	; 24
+ 176:	81 60       	ori	r24, 0x01	; 1
+ 178:	88 bb       	out	0x18, r24	; 24
+			LOW(LL6);
+ 17a:	88 b3       	in	r24, 0x18	; 24
+ 17c:	8d 7f       	andi	r24, 0xFD	; 253
+ 17e:	88 bb       	out	0x18, r24	; 24
+ 180:	08 95       	ret
+		}
+		else if(color == 1){
+ 182:	61 30       	cpi	r22, 0x01	; 1
+ 184:	39 f4       	brne	.+14     	; 0x194 <setLedColor+0x130>
+			LOW(LH6);
+ 186:	88 b3       	in	r24, 0x18	; 24
+ 188:	8e 7f       	andi	r24, 0xFE	; 254
+ 18a:	88 bb       	out	0x18, r24	; 24
+			HIGH(LL6);
+ 18c:	88 b3       	in	r24, 0x18	; 24
+ 18e:	82 60       	ori	r24, 0x02	; 2
+ 190:	88 bb       	out	0x18, r24	; 24
+ 192:	08 95       	ret
+		}
+		else{
+			LOW(LH6);
+ 194:	88 b3       	in	r24, 0x18	; 24
+ 196:	8e 7f       	andi	r24, 0xFE	; 254
+ 198:	88 bb       	out	0x18, r24	; 24
+			LOW(LL6);
+ 19a:	88 b3       	in	r24, 0x18	; 24
+ 19c:	8d 7f       	andi	r24, 0xFD	; 253
+ 19e:	88 bb       	out	0x18, r24	; 24
+ 1a0:	08 95       	ret
+		}
+		break;
+		
+		case 6:
+		if(color == 2){
+ 1a2:	62 30       	cpi	r22, 0x02	; 2
+ 1a4:	39 f4       	brne	.+14     	; 0x1b4 <setLedColor+0x150>
+			HIGH(LH7);
+ 1a6:	88 b3       	in	r24, 0x18	; 24
+ 1a8:	84 60       	ori	r24, 0x04	; 4
+ 1aa:	88 bb       	out	0x18, r24	; 24
+			LOW(LL7);
+ 1ac:	85 b3       	in	r24, 0x15	; 21
+ 1ae:	8d 7f       	andi	r24, 0xFD	; 253
+ 1b0:	85 bb       	out	0x15, r24	; 21
+ 1b2:	08 95       	ret
+		}
+		else if(color == 1){
+ 1b4:	61 30       	cpi	r22, 0x01	; 1
+ 1b6:	39 f4       	brne	.+14     	; 0x1c6 <setLedColor+0x162>
+			LOW(LH7);
+ 1b8:	88 b3       	in	r24, 0x18	; 24
+ 1ba:	8b 7f       	andi	r24, 0xFB	; 251
+ 1bc:	88 bb       	out	0x18, r24	; 24
+			HIGH(LL7);
+ 1be:	85 b3       	in	r24, 0x15	; 21
+ 1c0:	82 60       	ori	r24, 0x02	; 2
+ 1c2:	85 bb       	out	0x15, r24	; 21
+ 1c4:	08 95       	ret
+		}
+		else{
+			LOW(LH7);
+ 1c6:	88 b3       	in	r24, 0x18	; 24
+ 1c8:	8b 7f       	andi	r24, 0xFB	; 251
+ 1ca:	88 bb       	out	0x18, r24	; 24
+			LOW(LL7);
+ 1cc:	85 b3       	in	r24, 0x15	; 21
+ 1ce:	8d 7f       	andi	r24, 0xFD	; 253
+ 1d0:	85 bb       	out	0x15, r24	; 21
+ 1d2:	08 95       	ret
+		}
+		break;
+		
+		case 7:
+		if(color == 2){
+ 1d4:	62 30       	cpi	r22, 0x02	; 2
+ 1d6:	39 f4       	brne	.+14     	; 0x1e6 <setLedColor+0x182>
+			HIGH(LH8);
+ 1d8:	85 b3       	in	r24, 0x15	; 21
+ 1da:	84 60       	ori	r24, 0x04	; 4
+ 1dc:	85 bb       	out	0x15, r24	; 21
+			LOW(LL8);
+ 1de:	85 b3       	in	r24, 0x15	; 21
+ 1e0:	87 7f       	andi	r24, 0xF7	; 247
+ 1e2:	85 bb       	out	0x15, r24	; 21
+ 1e4:	08 95       	ret
+		}
+		else if(color == 1){
+ 1e6:	61 30       	cpi	r22, 0x01	; 1
+ 1e8:	39 f4       	brne	.+14     	; 0x1f8 <setLedColor+0x194>
+			LOW(LH8);
+ 1ea:	85 b3       	in	r24, 0x15	; 21
+ 1ec:	8b 7f       	andi	r24, 0xFB	; 251
+ 1ee:	85 bb       	out	0x15, r24	; 21
+			HIGH(LL8);
+ 1f0:	85 b3       	in	r24, 0x15	; 21
+ 1f2:	88 60       	ori	r24, 0x08	; 8
+ 1f4:	85 bb       	out	0x15, r24	; 21
+ 1f6:	08 95       	ret
+		}
+		else{
+			LOW(LH8);
+ 1f8:	85 b3       	in	r24, 0x15	; 21
+ 1fa:	8b 7f       	andi	r24, 0xFB	; 251
+ 1fc:	85 bb       	out	0x15, r24	; 21
+			LOW(LL8);
+ 1fe:	85 b3       	in	r24, 0x15	; 21
+ 200:	87 7f       	andi	r24, 0xF7	; 247
+ 202:	85 bb       	out	0x15, r24	; 21
+ 204:	08 95       	ret
+		}
+		break;
+		
+		case 8:
+		if(color == 2){
+ 206:	62 30       	cpi	r22, 0x02	; 2
+ 208:	39 f4       	brne	.+14     	; 0x218 <__EEPROM_REGION_LENGTH__+0x18>
+			HIGH(LH9);
+ 20a:	85 b3       	in	r24, 0x15	; 21
+ 20c:	80 61       	ori	r24, 0x10	; 16
+ 20e:	85 bb       	out	0x15, r24	; 21
+			LOW(LL9);
+ 210:	85 b3       	in	r24, 0x15	; 21
+ 212:	8f 7d       	andi	r24, 0xDF	; 223
+ 214:	85 bb       	out	0x15, r24	; 21
+ 216:	08 95       	ret
+		}
+		else if(color == 1){
+ 218:	61 30       	cpi	r22, 0x01	; 1
+ 21a:	39 f4       	brne	.+14     	; 0x22a <__EEPROM_REGION_LENGTH__+0x2a>
+			LOW(LH9);
+ 21c:	85 b3       	in	r24, 0x15	; 21
+ 21e:	8f 7e       	andi	r24, 0xEF	; 239
+ 220:	85 bb       	out	0x15, r24	; 21
+			HIGH(LL9);
+ 222:	85 b3       	in	r24, 0x15	; 21
+ 224:	80 62       	ori	r24, 0x20	; 32
+ 226:	85 bb       	out	0x15, r24	; 21
+ 228:	08 95       	ret
+		}
+		else{
+			LOW(LH9);
+ 22a:	85 b3       	in	r24, 0x15	; 21
+ 22c:	8f 7e       	andi	r24, 0xEF	; 239
+ 22e:	85 bb       	out	0x15, r24	; 21
+			LOW(LL9);
+ 230:	85 b3       	in	r24, 0x15	; 21
+ 232:	8f 7d       	andi	r24, 0xDF	; 223
+ 234:	85 bb       	out	0x15, r24	; 21
+ 236:	08 95       	ret
+
+Disassembly of section .text.setDisplay:
+
+000005f4 <setDisplay>:
+		}
+		break;
+	}
+}
+
+void setDisplay(uint8_t schema[]){
+ 5f4:	0f 93       	push	r16
+ 5f6:	1f 93       	push	r17
+ 5f8:	cf 93       	push	r28
+ 5fa:	8c 01       	movw	r16, r24
+	uint8_t i;
+	for(i = 0; i<9;i++){
+ 5fc:	c0 e0       	ldi	r28, 0x00	; 0
+ 5fe:	07 c0       	rjmp	.+14     	; 0x60e <setDisplay+0x1a>
+		setLedColor(i, schema[i]);
+ 600:	f8 01       	movw	r30, r16
+ 602:	ec 0f       	add	r30, r28
+ 604:	f1 1d       	adc	r31, r1
+ 606:	60 81       	ld	r22, Z
+ 608:	8c 2f       	mov	r24, r28
+ 60a:	2c dd       	rcall	.-1448   	; 0x64 <setLedColor>
+	}
+}
+
+void setDisplay(uint8_t schema[]){
+	uint8_t i;
+	for(i = 0; i<9;i++){
+ 60c:	cf 5f       	subi	r28, 0xFF	; 255
+ 60e:	c9 30       	cpi	r28, 0x09	; 9
+ 610:	b8 f3       	brcs	.-18     	; 0x600 <setDisplay+0xc>
+		setLedColor(i, schema[i]);
+	}
+}
+ 612:	cf 91       	pop	r28
+ 614:	1f 91       	pop	r17
+ 616:	0f 91       	pop	r16
+ 618:	08 95       	ret
+
+Disassembly of section .text.winAnimation:
+
+00000238 <winAnimation>:
+
+void winAnimation(uint8_t schema[], uint8_t winningPattern, uint8_t winningPlayer){
+ 238:	af 92       	push	r10
+ 23a:	bf 92       	push	r11
+ 23c:	cf 92       	push	r12
+ 23e:	df 92       	push	r13
+ 240:	ef 92       	push	r14
+ 242:	ff 92       	push	r15
+ 244:	0f 93       	push	r16
+ 246:	1f 93       	push	r17
+ 248:	cf 93       	push	r28
+ 24a:	df 93       	push	r29
+ 24c:	ec 01       	movw	r28, r24
+ 24e:	b4 2e       	mov	r11, r20
+	for(unsigned char i = 0; i<9;i++){
+ 250:	80 e0       	ldi	r24, 0x00	; 0
+ 252:	05 c0       	rjmp	.+10     	; 0x25e <winAnimation+0x26>
+		schema[i] = 0;
+ 254:	fe 01       	movw	r30, r28
+ 256:	e8 0f       	add	r30, r24
+ 258:	f1 1d       	adc	r31, r1
+ 25a:	10 82       	st	Z, r1
+		setLedColor(i, schema[i]);
+	}
+}
+
+void winAnimation(uint8_t schema[], uint8_t winningPattern, uint8_t winningPlayer){
+	for(unsigned char i = 0; i<9;i++){
+ 25c:	8f 5f       	subi	r24, 0xFF	; 255
+ 25e:	89 30       	cpi	r24, 0x09	; 9
+ 260:	c8 f3       	brcs	.-14     	; 0x254 <winAnimation+0x1c>
+		schema[i] = 0;
+	}
+	schema[linepattern[winningPattern][0]] = winningPlayer;
+ 262:	70 e0       	ldi	r23, 0x00	; 0
+ 264:	cb 01       	movw	r24, r22
+ 266:	88 0f       	add	r24, r24
+ 268:	99 1f       	adc	r25, r25
+ 26a:	86 0f       	add	r24, r22
+ 26c:	97 1f       	adc	r25, r23
+ 26e:	9c 01       	movw	r18, r24
+ 270:	09 2e       	mov	r0, r25
+ 272:	00 0c       	add	r0, r0
+ 274:	44 0b       	sbc	r20, r20
+ 276:	24 5b       	subi	r18, 0xB4	; 180
+ 278:	3f 4f       	sbci	r19, 0xFF	; 255
+ 27a:	4f 4f       	sbci	r20, 0xFF	; 255
+ 27c:	f9 01       	movw	r30, r18
+ 27e:	24 91       	lpm	r18, Z
+ 280:	47 fd       	sbrc	r20, 7
+ 282:	20 81       	ld	r18, Z
+ 284:	7e 01       	movw	r14, r28
+ 286:	e2 0e       	add	r14, r18
+ 288:	f1 1c       	adc	r15, r1
+ 28a:	f7 01       	movw	r30, r14
+ 28c:	b0 82       	st	Z, r11
+	schema[linepattern[winningPattern][1]] = winningPlayer;
+ 28e:	9c 01       	movw	r18, r24
+ 290:	2f 5f       	subi	r18, 0xFF	; 255
+ 292:	3f 4f       	sbci	r19, 0xFF	; 255
+ 294:	03 2e       	mov	r0, r19
+ 296:	00 0c       	add	r0, r0
+ 298:	44 0b       	sbc	r20, r20
+ 29a:	24 5b       	subi	r18, 0xB4	; 180
+ 29c:	3f 4f       	sbci	r19, 0xFF	; 255
+ 29e:	4f 4f       	sbci	r20, 0xFF	; 255
+ 2a0:	f9 01       	movw	r30, r18
+ 2a2:	24 91       	lpm	r18, Z
+ 2a4:	47 fd       	sbrc	r20, 7
+ 2a6:	20 81       	ld	r18, Z
+ 2a8:	8e 01       	movw	r16, r28
+ 2aa:	02 0f       	add	r16, r18
+ 2ac:	11 1d       	adc	r17, r1
+ 2ae:	f8 01       	movw	r30, r16
+ 2b0:	b0 82       	st	Z, r11
+	schema[linepattern[winningPattern][2]] = winningPlayer;
+ 2b2:	02 96       	adiw	r24, 0x02	; 2
+ 2b4:	09 2e       	mov	r0, r25
+ 2b6:	00 0c       	add	r0, r0
+ 2b8:	aa 0b       	sbc	r26, r26
+ 2ba:	84 5b       	subi	r24, 0xB4	; 180
+ 2bc:	9f 4f       	sbci	r25, 0xFF	; 255
+ 2be:	af 4f       	sbci	r26, 0xFF	; 255
+ 2c0:	fc 01       	movw	r30, r24
+ 2c2:	84 91       	lpm	r24, Z
+ 2c4:	a7 fd       	sbrc	r26, 7
+ 2c6:	80 81       	ld	r24, Z
+ 2c8:	6e 01       	movw	r12, r28
+ 2ca:	c8 0e       	add	r12, r24
+ 2cc:	d1 1c       	adc	r13, r1
+ 2ce:	f6 01       	movw	r30, r12
+ 2d0:	b0 82       	st	Z, r11
+	setDisplay(schema);
+ 2d2:	ce 01       	movw	r24, r28
+ 2d4:	8f d1       	rcall	.+798    	; 0x5f4 <setDisplay>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2d6:	ff e9       	ldi	r31, 0x9F	; 159
+ 2d8:	26 e8       	ldi	r18, 0x86	; 134
+ 2da:	81 e0       	ldi	r24, 0x01	; 1
+ 2dc:	f1 50       	subi	r31, 0x01	; 1
+ 2de:	20 40       	sbci	r18, 0x00	; 0
+ 2e0:	80 40       	sbci	r24, 0x00	; 0
+ 2e2:	e1 f7       	brne	.-8      	; 0x2dc <winAnimation+0xa4>
+ 2e4:	00 c0       	rjmp	.+0      	; 0x2e6 <winAnimation+0xae>
+ 2e6:	00 00       	nop
+	_delay_ms(500);
+	for(unsigned char i = 0;i<2;i++){
+ 2e8:	a1 2c       	mov	r10, r1
+ 2ea:	26 c0       	rjmp	.+76     	; 0x338 <winAnimation+0x100>
+		for(unsigned char i = 0; i<9;i++){
+			schema[i] = 0;
+ 2ec:	fe 01       	movw	r30, r28
+ 2ee:	e8 0f       	add	r30, r24
+ 2f0:	f1 1d       	adc	r31, r1
+ 2f2:	10 82       	st	Z, r1
+	schema[linepattern[winningPattern][1]] = winningPlayer;
+	schema[linepattern[winningPattern][2]] = winningPlayer;
+	setDisplay(schema);
+	_delay_ms(500);
+	for(unsigned char i = 0;i<2;i++){
+		for(unsigned char i = 0; i<9;i++){
+ 2f4:	8f 5f       	subi	r24, 0xFF	; 255
+ 2f6:	01 c0       	rjmp	.+2      	; 0x2fa <winAnimation+0xc2>
+ 2f8:	80 e0       	ldi	r24, 0x00	; 0
+ 2fa:	89 30       	cpi	r24, 0x09	; 9
+ 2fc:	b8 f3       	brcs	.-18     	; 0x2ec <winAnimation+0xb4>
+			schema[i] = 0;
+		}
+		setDisplay(schema);
+ 2fe:	ce 01       	movw	r24, r28
+ 300:	79 d1       	rcall	.+754    	; 0x5f4 <setDisplay>
+ 302:	9f e9       	ldi	r25, 0x9F	; 159
+ 304:	e6 e8       	ldi	r30, 0x86	; 134
+ 306:	f1 e0       	ldi	r31, 0x01	; 1
+ 308:	91 50       	subi	r25, 0x01	; 1
+ 30a:	e0 40       	sbci	r30, 0x00	; 0
+ 30c:	f0 40       	sbci	r31, 0x00	; 0
+ 30e:	e1 f7       	brne	.-8      	; 0x308 <winAnimation+0xd0>
+ 310:	00 c0       	rjmp	.+0      	; 0x312 <winAnimation+0xda>
+ 312:	00 00       	nop
+		_delay_ms(500);
+		schema[linepattern[winningPattern][0]] = winningPlayer;
+ 314:	f7 01       	movw	r30, r14
+ 316:	b0 82       	st	Z, r11
+		schema[linepattern[winningPattern][1]] = winningPlayer;
+ 318:	f8 01       	movw	r30, r16
+ 31a:	b0 82       	st	Z, r11
+		schema[linepattern[winningPattern][2]] = winningPlayer;
+ 31c:	f6 01       	movw	r30, r12
+ 31e:	b0 82       	st	Z, r11
+		setDisplay(schema);
+ 320:	ce 01       	movw	r24, r28
+ 322:	68 d1       	rcall	.+720    	; 0x5f4 <setDisplay>
+ 324:	ff e9       	ldi	r31, 0x9F	; 159
+ 326:	26 e8       	ldi	r18, 0x86	; 134
+ 328:	81 e0       	ldi	r24, 0x01	; 1
+ 32a:	f1 50       	subi	r31, 0x01	; 1
+ 32c:	20 40       	sbci	r18, 0x00	; 0
+ 32e:	80 40       	sbci	r24, 0x00	; 0
+ 330:	e1 f7       	brne	.-8      	; 0x32a <winAnimation+0xf2>
+ 332:	00 c0       	rjmp	.+0      	; 0x334 <winAnimation+0xfc>
+ 334:	00 00       	nop
+	schema[linepattern[winningPattern][0]] = winningPlayer;
+	schema[linepattern[winningPattern][1]] = winningPlayer;
+	schema[linepattern[winningPattern][2]] = winningPlayer;
+	setDisplay(schema);
+	_delay_ms(500);
+	for(unsigned char i = 0;i<2;i++){
+ 336:	a3 94       	inc	r10
+ 338:	91 e0       	ldi	r25, 0x01	; 1
+ 33a:	9a 15       	cp	r25, r10
+ 33c:	e8 f6       	brcc	.-70     	; 0x2f8 <winAnimation+0xc0>
+ 33e:	80 e0       	ldi	r24, 0x00	; 0
+ 340:	05 c0       	rjmp	.+10     	; 0x34c <winAnimation+0x114>
+		schema[linepattern[winningPattern][2]] = winningPlayer;
+		setDisplay(schema);
+		_delay_ms(500);
+	}
+	for(unsigned char i = 0; i<9;i++){
+		schema[i] = 0;
+ 342:	fe 01       	movw	r30, r28
+ 344:	e8 0f       	add	r30, r24
+ 346:	f1 1d       	adc	r31, r1
+ 348:	10 82       	st	Z, r1
+		schema[linepattern[winningPattern][1]] = winningPlayer;
+		schema[linepattern[winningPattern][2]] = winningPlayer;
+		setDisplay(schema);
+		_delay_ms(500);
+	}
+	for(unsigned char i = 0; i<9;i++){
+ 34a:	8f 5f       	subi	r24, 0xFF	; 255
+ 34c:	89 30       	cpi	r24, 0x09	; 9
+ 34e:	c8 f3       	brcs	.-14     	; 0x342 <winAnimation+0x10a>
+		schema[i] = 0;
+	}
+	setDisplay(schema);
+ 350:	ce 01       	movw	r24, r28
+ 352:	50 d1       	rcall	.+672    	; 0x5f4 <setDisplay>
+ 354:	ef e9       	ldi	r30, 0x9F	; 159
+ 356:	f6 e8       	ldi	r31, 0x86	; 134
+ 358:	21 e0       	ldi	r18, 0x01	; 1
+ 35a:	e1 50       	subi	r30, 0x01	; 1
+ 35c:	f0 40       	sbci	r31, 0x00	; 0
+ 35e:	20 40       	sbci	r18, 0x00	; 0
+ 360:	e1 f7       	brne	.-8      	; 0x35a <winAnimation+0x122>
+ 362:	00 c0       	rjmp	.+0      	; 0x364 <winAnimation+0x12c>
+ 364:	00 00       	nop
+	_delay_ms(500);
+}
+ 366:	df 91       	pop	r29
+ 368:	cf 91       	pop	r28
+ 36a:	1f 91       	pop	r17
+ 36c:	0f 91       	pop	r16
+ 36e:	ff 90       	pop	r15
+ 370:	ef 90       	pop	r14
+ 372:	df 90       	pop	r13
+ 374:	cf 90       	pop	r12
+ 376:	bf 90       	pop	r11
+ 378:	af 90       	pop	r10
+ 37a:	08 95       	ret
+
+Disassembly of section .text.findWin:
+
+0000047a <findWin>:
+
+uint8_t findWin(uint8_t schema[]){
+	uint8_t i;
+	for(i=0;i<9;i++){
+ 47a:	60 e0       	ldi	r22, 0x00	; 0
+ 47c:	4c c0       	rjmp	.+152    	; 0x516 <findWin+0x9c>
+		if(((schema[linepattern[i][0]]&&schema[linepattern[i][1]])&&(schema[linepattern[i][1]]&&schema[linepattern[i][2]]))&&schema[linepattern[i][0]] != 0){
+ 47e:	a6 2f       	mov	r26, r22
+ 480:	b0 e0       	ldi	r27, 0x00	; 0
+ 482:	9d 01       	movw	r18, r26
+ 484:	22 0f       	add	r18, r18
+ 486:	33 1f       	adc	r19, r19
+ 488:	2a 0f       	add	r18, r26
+ 48a:	3b 1f       	adc	r19, r27
+ 48c:	03 2e       	mov	r0, r19
+ 48e:	00 0c       	add	r0, r0
+ 490:	44 0b       	sbc	r20, r20
+ 492:	24 5b       	subi	r18, 0xB4	; 180
+ 494:	3f 4f       	sbci	r19, 0xFF	; 255
+ 496:	4f 4f       	sbci	r20, 0xFF	; 255
+ 498:	f9 01       	movw	r30, r18
+ 49a:	24 91       	lpm	r18, Z
+ 49c:	47 fd       	sbrc	r20, 7
+ 49e:	20 81       	ld	r18, Z
+ 4a0:	fc 01       	movw	r30, r24
+ 4a2:	e2 0f       	add	r30, r18
+ 4a4:	f1 1d       	adc	r31, r1
+ 4a6:	50 81       	ld	r21, Z
+ 4a8:	55 23       	and	r21, r21
+ 4aa:	a1 f1       	breq	.+104    	; 0x514 <findWin+0x9a>
+ 4ac:	9d 01       	movw	r18, r26
+ 4ae:	22 0f       	add	r18, r18
+ 4b0:	33 1f       	adc	r19, r19
+ 4b2:	2a 0f       	add	r18, r26
+ 4b4:	3b 1f       	adc	r19, r27
+ 4b6:	2f 5f       	subi	r18, 0xFF	; 255
+ 4b8:	3f 4f       	sbci	r19, 0xFF	; 255
+ 4ba:	03 2e       	mov	r0, r19
+ 4bc:	00 0c       	add	r0, r0
+ 4be:	44 0b       	sbc	r20, r20
+ 4c0:	24 5b       	subi	r18, 0xB4	; 180
+ 4c2:	3f 4f       	sbci	r19, 0xFF	; 255
+ 4c4:	4f 4f       	sbci	r20, 0xFF	; 255
+ 4c6:	f9 01       	movw	r30, r18
+ 4c8:	24 91       	lpm	r18, Z
+ 4ca:	47 fd       	sbrc	r20, 7
+ 4cc:	20 81       	ld	r18, Z
+ 4ce:	fc 01       	movw	r30, r24
+ 4d0:	e2 0f       	add	r30, r18
+ 4d2:	f1 1d       	adc	r31, r1
+ 4d4:	20 81       	ld	r18, Z
+ 4d6:	22 23       	and	r18, r18
+ 4d8:	e9 f0       	breq	.+58     	; 0x514 <findWin+0x9a>
+ 4da:	e1 f0       	breq	.+56     	; 0x514 <findWin+0x9a>
+ 4dc:	9d 01       	movw	r18, r26
+ 4de:	22 0f       	add	r18, r18
+ 4e0:	33 1f       	adc	r19, r19
+ 4e2:	a2 0f       	add	r26, r18
+ 4e4:	b3 1f       	adc	r27, r19
+ 4e6:	12 96       	adiw	r26, 0x02	; 2
+ 4e8:	9d 01       	movw	r18, r26
+ 4ea:	bb 0f       	add	r27, r27
+ 4ec:	44 0b       	sbc	r20, r20
+ 4ee:	24 5b       	subi	r18, 0xB4	; 180
+ 4f0:	3f 4f       	sbci	r19, 0xFF	; 255
+ 4f2:	4f 4f       	sbci	r20, 0xFF	; 255
+ 4f4:	f9 01       	movw	r30, r18
+ 4f6:	24 91       	lpm	r18, Z
+ 4f8:	47 fd       	sbrc	r20, 7
+ 4fa:	20 81       	ld	r18, Z
+ 4fc:	fc 01       	movw	r30, r24
+ 4fe:	e2 0f       	add	r30, r18
+ 500:	f1 1d       	adc	r31, r1
+ 502:	20 81       	ld	r18, Z
+ 504:	22 23       	and	r18, r18
+ 506:	31 f0       	breq	.+12     	; 0x514 <findWin+0x9a>
+ 508:	55 23       	and	r21, r21
+ 50a:	21 f0       	breq	.+8      	; 0x514 <findWin+0x9a>
+			winAnimation(schema, i, schema[linepattern[i][0]]);
+ 50c:	45 2f       	mov	r20, r21
+ 50e:	94 de       	rcall	.-728    	; 0x238 <winAnimation>
+			return 1;
+ 510:	81 e0       	ldi	r24, 0x01	; 1
+ 512:	08 95       	ret
+	_delay_ms(500);
+}
+
+uint8_t findWin(uint8_t schema[]){
+	uint8_t i;
+	for(i=0;i<9;i++){
+ 514:	6f 5f       	subi	r22, 0xFF	; 255
+ 516:	69 30       	cpi	r22, 0x09	; 9
+ 518:	08 f4       	brcc	.+2      	; 0x51c <findWin+0xa2>
+ 51a:	b1 cf       	rjmp	.-158    	; 0x47e <findWin+0x4>
+		if(((schema[linepattern[i][0]]&&schema[linepattern[i][1]])&&(schema[linepattern[i][1]]&&schema[linepattern[i][2]]))&&schema[linepattern[i][0]] != 0){
+			winAnimation(schema, i, schema[linepattern[i][0]]);
+			return 1;
+		}
+	}
+	return 0;
+ 51c:	80 e0       	ldi	r24, 0x00	; 0
+}
+ 51e:	08 95       	ret
+
+Disassembly of section .text.drawAnimation:
+
+000005a4 <drawAnimation>:
+
+
+void drawAnimation(uint8_t schema[]){
+ 5a4:	0f 93       	push	r16
+ 5a6:	1f 93       	push	r17
+ 5a8:	cf 93       	push	r28
+ 5aa:	8c 01       	movw	r16, r24
+	uint8_t i;
+	for(i = 1; i <= 9; i++){
+ 5ac:	c1 e0       	ldi	r28, 0x01	; 1
+ 5ae:	1c c0       	rjmp	.+56     	; 0x5e8 <drawAnimation+0x44>
+		schema[i-1] = 0;
+ 5b0:	ec 2f       	mov	r30, r28
+ 5b2:	f0 e0       	ldi	r31, 0x00	; 0
+ 5b4:	31 97       	sbiw	r30, 0x01	; 1
+ 5b6:	e0 0f       	add	r30, r16
+ 5b8:	f1 1f       	adc	r31, r17
+ 5ba:	10 82       	st	Z, r1
+		if(i%3 == 0){
+ 5bc:	8b ea       	ldi	r24, 0xAB	; 171
+ 5be:	c8 9f       	mul	r28, r24
+ 5c0:	81 2d       	mov	r24, r1
+ 5c2:	11 24       	eor	r1, r1
+ 5c4:	86 95       	lsr	r24
+ 5c6:	98 2f       	mov	r25, r24
+ 5c8:	99 0f       	add	r25, r25
+ 5ca:	89 0f       	add	r24, r25
+ 5cc:	c8 13       	cpse	r28, r24
+ 5ce:	0b c0       	rjmp	.+22     	; 0x5e6 <drawAnimation+0x42>
+			setDisplay(schema);
+ 5d0:	c8 01       	movw	r24, r16
+ 5d2:	10 d0       	rcall	.+32     	; 0x5f4 <setDisplay>
+ 5d4:	2f e9       	ldi	r18, 0x9F	; 159
+ 5d6:	86 e8       	ldi	r24, 0x86	; 134
+ 5d8:	91 e0       	ldi	r25, 0x01	; 1
+ 5da:	21 50       	subi	r18, 0x01	; 1
+ 5dc:	80 40       	sbci	r24, 0x00	; 0
+ 5de:	90 40       	sbci	r25, 0x00	; 0
+ 5e0:	e1 f7       	brne	.-8      	; 0x5da <drawAnimation+0x36>
+ 5e2:	00 c0       	rjmp	.+0      	; 0x5e4 <drawAnimation+0x40>
+ 5e4:	00 00       	nop
+}
+
+
+void drawAnimation(uint8_t schema[]){
+	uint8_t i;
+	for(i = 1; i <= 9; i++){
+ 5e6:	cf 5f       	subi	r28, 0xFF	; 255
+ 5e8:	ca 30       	cpi	r28, 0x0A	; 10
+ 5ea:	10 f3       	brcs	.-60     	; 0x5b0 <drawAnimation+0xc>
+		if(i%3 == 0){
+			setDisplay(schema);
+			_delay_ms(500);
+		}
+	}
+}
+ 5ec:	cf 91       	pop	r28
+ 5ee:	1f 91       	pop	r17
+ 5f0:	0f 91       	pop	r16
+ 5f2:	08 95       	ret
+
+Disassembly of section .text.main:
+
+0000037c <main>:
+
+
+int main(void)
+{
+ 37c:	cf 93       	push	r28
+ 37e:	df 93       	push	r29
+ 380:	cd b7       	in	r28, 0x3d	; 61
+ 382:	de b7       	in	r29, 0x3e	; 62
+ 384:	29 97       	sbiw	r28, 0x09	; 9
+ 386:	0f b6       	in	r0, 0x3f	; 63
+ 388:	f8 94       	cli
+ 38a:	de bf       	out	0x3e, r29	; 62
+ 38c:	0f be       	out	0x3f, r0	; 63
+ 38e:	cd bf       	out	0x3d, r28	; 61
+	uint8_t ledschema[9];
+	for(unsigned char i = 0;i<9;i++){
+ 390:	80 e0       	ldi	r24, 0x00	; 0
+ 392:	08 c0       	rjmp	.+16     	; 0x3a4 <main+0x28>
+		ledschema[i] = 0;
+ 394:	e1 e0       	ldi	r30, 0x01	; 1
+ 396:	f0 e0       	ldi	r31, 0x00	; 0
+ 398:	ec 0f       	add	r30, r28
+ 39a:	fd 1f       	adc	r31, r29
+ 39c:	e8 0f       	add	r30, r24
+ 39e:	f1 1d       	adc	r31, r1
+ 3a0:	10 82       	st	Z, r1
+
+
+int main(void)
+{
+	uint8_t ledschema[9];
+	for(unsigned char i = 0;i<9;i++){
+ 3a2:	8f 5f       	subi	r24, 0xFF	; 255
+ 3a4:	89 30       	cpi	r24, 0x09	; 9
+ 3a6:	b0 f3       	brcs	.-20     	; 0x394 <main+0x18>
+		ledschema[i] = 0;
+	}
+	initADC();
+ 3a8:	49 d1       	rcall	.+658    	; 0x63c <initADC>
+	uint8_t lastButton = 10;
+	uint8_t turnCounter = 1;
+	uint8_t prevButton = 10;
+	DDRB = 0xFF;
+ 3aa:	8f ef       	ldi	r24, 0xFF	; 255
+ 3ac:	87 bb       	out	0x17, r24	; 23
+	DDRC = 0xFE;
+ 3ae:	9e ef       	ldi	r25, 0xFE	; 254
+ 3b0:	94 bb       	out	0x14, r25	; 20
+	DDRD = 0xFF;
+ 3b2:	81 bb       	out	0x11, r24	; 17
+	for(unsigned char i = 0;i<9;i++){
+		ledschema[i] = 0;
+	}
+	initADC();
+	uint8_t lastButton = 10;
+	uint8_t turnCounter = 1;
+ 3b4:	01 e0       	ldi	r16, 0x01	; 1
+	uint8_t ledschema[9];
+	for(unsigned char i = 0;i<9;i++){
+		ledschema[i] = 0;
+	}
+	initADC();
+	uint8_t lastButton = 10;
+ 3b6:	0f 2e       	mov	r0, r31
+ 3b8:	fa e0       	ldi	r31, 0x0A	; 10
+ 3ba:	ff 2e       	mov	r15, r31
+ 3bc:	f0 2d       	mov	r31, r0
+ 3be:	08 c0       	rjmp	.+16     	; 0x3d0 <main+0x54>
+ 3c0:	81 ee       	ldi	r24, 0xE1	; 225
+ 3c2:	94 e0       	ldi	r25, 0x04	; 4
+ 3c4:	01 97       	sbiw	r24, 0x01	; 1
+ 3c6:	f1 f7       	brne	.-4      	; 0x3c4 <main+0x48>
+ 3c8:	00 c0       	rjmp	.+0      	; 0x3ca <main+0x4e>
+ 3ca:	00 00       	nop
+ 3cc:	01 c0       	rjmp	.+2      	; 0x3d0 <main+0x54>
+	while(1)
+	{
+		while(readADC()<200)_delay_ms(5);
+		_delay_ms(1);
+		prevButton = lastButton;
+		lastButton = readButtons();
+ 3ce:	f1 2e       	mov	r15, r17
+	DDRB = 0xFF;
+	DDRC = 0xFE;
+	DDRD = 0xFF;
+	while(1)
+	{
+		while(readADC()<200)_delay_ms(5);
+ 3d0:	2d d1       	rcall	.+602    	; 0x62c <readADC>
+ 3d2:	88 3c       	cpi	r24, 0xC8	; 200
+ 3d4:	91 05       	cpc	r25, r1
+ 3d6:	a0 f3       	brcs	.-24     	; 0x3c0 <main+0x44>
+ 3d8:	89 ef       	ldi	r24, 0xF9	; 249
+ 3da:	90 e0       	ldi	r25, 0x00	; 0
+ 3dc:	01 97       	sbiw	r24, 0x01	; 1
+ 3de:	f1 f7       	brne	.-4      	; 0x3dc <main+0x60>
+ 3e0:	00 c0       	rjmp	.+0      	; 0x3e2 <main+0x66>
+ 3e2:	00 00       	nop
+		_delay_ms(1);
+		prevButton = lastButton;
+		lastButton = readButtons();
+ 3e4:	1a d1       	rcall	.+564    	; 0x61a <readButtons>
+ 3e6:	18 2f       	mov	r17, r24
+		if(prevButton == lastButton) continue;
+ 3e8:	f8 16       	cp	r15, r24
+ 3ea:	89 f3       	breq	.-30     	; 0x3ce <main+0x52>
+		
+		if(ledschema[lastButton] == 0){
+ 3ec:	90 e0       	ldi	r25, 0x00	; 0
+ 3ee:	e1 e0       	ldi	r30, 0x01	; 1
+ 3f0:	f0 e0       	ldi	r31, 0x00	; 0
+ 3f2:	ec 0f       	add	r30, r28
+ 3f4:	fd 1f       	adc	r31, r29
+ 3f6:	e8 0f       	add	r30, r24
+ 3f8:	f9 1f       	adc	r31, r25
+ 3fa:	20 81       	ld	r18, Z
+ 3fc:	21 11       	cpse	r18, r1
+ 3fe:	31 c0       	rjmp	.+98     	; 0x462 <__stack+0x3>
+			if((turnCounter%2) == 1){
+ 400:	00 ff       	sbrs	r16, 0
+ 402:	09 c0       	rjmp	.+18     	; 0x416 <__DATA_REGION_LENGTH__+0x16>
+				ledschema[lastButton] = 1;
+ 404:	e1 e0       	ldi	r30, 0x01	; 1
+ 406:	f0 e0       	ldi	r31, 0x00	; 0
+ 408:	ec 0f       	add	r30, r28
+ 40a:	fd 1f       	adc	r31, r29
+ 40c:	e8 0f       	add	r30, r24
+ 40e:	f9 1f       	adc	r31, r25
+ 410:	21 e0       	ldi	r18, 0x01	; 1
+ 412:	20 83       	st	Z, r18
+ 414:	08 c0       	rjmp	.+16     	; 0x426 <__DATA_REGION_LENGTH__+0x26>
+			}
+			else{
+				ledschema[lastButton] = 2;
+ 416:	e1 e0       	ldi	r30, 0x01	; 1
+ 418:	f0 e0       	ldi	r31, 0x00	; 0
+ 41a:	ec 0f       	add	r30, r28
+ 41c:	fd 1f       	adc	r31, r29
+ 41e:	e8 0f       	add	r30, r24
+ 420:	f9 1f       	adc	r31, r25
+ 422:	22 e0       	ldi	r18, 0x02	; 2
+ 424:	20 83       	st	Z, r18
+			}
+			
+			setDisplay(ledschema);
+ 426:	ce 01       	movw	r24, r28
+ 428:	01 96       	adiw	r24, 0x01	; 1
+ 42a:	e4 d0       	rcall	.+456    	; 0x5f4 <setDisplay>
+			
+			if(findWin(ledschema) == 1){
+ 42c:	ce 01       	movw	r24, r28
+ 42e:	01 96       	adiw	r24, 0x01	; 1
+ 430:	24 d0       	rcall	.+72     	; 0x47a <findWin>
+ 432:	81 30       	cpi	r24, 0x01	; 1
+ 434:	79 f4       	brne	.+30     	; 0x454 <__DATA_REGION_LENGTH__+0x54>
+ 436:	09 c0       	rjmp	.+18     	; 0x44a <__DATA_REGION_LENGTH__+0x4a>
+				turnCounter = 0;
+				lastButton = 0;
+				for(unsigned char i = 0;i<9;i++){
+					ledschema[i] = 0;
+ 438:	e1 e0       	ldi	r30, 0x01	; 1
+ 43a:	f0 e0       	ldi	r31, 0x00	; 0
+ 43c:	ec 0f       	add	r30, r28
+ 43e:	fd 1f       	adc	r31, r29
+ 440:	e8 0f       	add	r30, r24
+ 442:	f1 1d       	adc	r31, r1
+ 444:	10 82       	st	Z, r1
+			setDisplay(ledschema);
+			
+			if(findWin(ledschema) == 1){
+				turnCounter = 0;
+				lastButton = 0;
+				for(unsigned char i = 0;i<9;i++){
+ 446:	8f 5f       	subi	r24, 0xFF	; 255
+ 448:	01 c0       	rjmp	.+2      	; 0x44c <__DATA_REGION_LENGTH__+0x4c>
+ 44a:	80 e0       	ldi	r24, 0x00	; 0
+ 44c:	89 30       	cpi	r24, 0x09	; 9
+ 44e:	a0 f3       	brcs	.-24     	; 0x438 <__DATA_REGION_LENGTH__+0x38>
+			}
+			
+			setDisplay(ledschema);
+			
+			if(findWin(ledschema) == 1){
+				turnCounter = 0;
+ 450:	00 e0       	ldi	r16, 0x00	; 0
+				lastButton = 0;
+ 452:	10 e0       	ldi	r17, 0x00	; 0
+				for(unsigned char i = 0;i<9;i++){
+					ledschema[i] = 0;
+				}
+			}
+			
+			if(turnCounter >= 9){
+ 454:	09 30       	cpi	r16, 0x09	; 9
+ 456:	28 f0       	brcs	.+10     	; 0x462 <__stack+0x3>
+				drawAnimation(ledschema);
+ 458:	ce 01       	movw	r24, r28
+ 45a:	01 96       	adiw	r24, 0x01	; 1
+ 45c:	a3 d0       	rcall	.+326    	; 0x5a4 <drawAnimation>
+				turnCounter = 0;
+ 45e:	00 e0       	ldi	r16, 0x00	; 0
+				lastButton = 0;
+ 460:	10 e0       	ldi	r17, 0x00	; 0
+			}
+		}
+		turnCounter++;
+ 462:	0f 5f       	subi	r16, 0xFF	; 255
+ 464:	9f e9       	ldi	r25, 0x9F	; 159
+ 466:	26 e8       	ldi	r18, 0x86	; 134
+ 468:	81 e0       	ldi	r24, 0x01	; 1
+ 46a:	91 50       	subi	r25, 0x01	; 1
+ 46c:	20 40       	sbci	r18, 0x00	; 0
+ 46e:	80 40       	sbci	r24, 0x00	; 0
+ 470:	e1 f7       	brne	.-8      	; 0x46a <__stack+0xb>
+ 472:	00 c0       	rjmp	.+0      	; 0x474 <__stack+0x15>
+ 474:	00 00       	nop
+ 476:	f1 2e       	mov	r15, r17
+ 478:	ab cf       	rjmp	.-170    	; 0x3d0 <main+0x54>
